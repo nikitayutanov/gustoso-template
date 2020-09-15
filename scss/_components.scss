@@ -1,0 +1,62 @@
+.time-notice {
+    $g: &;
+    
+    font-family: $secondary-font;
+    font-weight: bold;
+
+    &--pre {
+        background: rgba(255, 255, 255, .8);
+    }
+
+    &--ready {
+        background: $white url(img/details/field.png) center/cover no-repeat;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__ready {
+        text-transform: uppercase;
+        color: $secondary-text-color;
+    }
+
+    &__num {
+        line-height: 1;
+
+        #{$g}--pre & {
+            font-size: $large-font-size;
+
+            @include sm {
+                font-size: $mid-font-size;
+            }
+        }
+
+        #{$g}--ready & {
+            font-size: $largest-font-size;
+            color: $tertiary-text-color;
+
+            @include sm {
+                font-size: $mid-font-size;
+            }
+        }
+    }
+
+    &__unit {
+        font-size: 18px;
+        color: #979285;
+    }
+}
+
+.button {
+    width: 100%;
+    max-width: 175px;
+    padding: 15px 0;
+    font-family: $secondary-font;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px dashed;
+}

@@ -1,0 +1,27 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: $primary-font;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 1.5;
+    color: $primary-text-color;
+}
+
+h1 {
+    font-family: $tertiary-font;
+    font-weight: bold;
+}
+
+h2, h3, h4, h5, h6,
+.subheading {
+    font-family: $secondary-font;
+    font-weight: bold;
+}
+
+.subheading {
+    text-transform: uppercase;
+    color: $secondary-text-color;
+}
