@@ -434,6 +434,7 @@ section {
         border: 3px solid transparent;
         border-radius: 50%;
         cursor: pointer;
+        box-sizing: content-box;
 
         &:hover {
             border: 3px solid $interaction-color;

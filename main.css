@@ -731,6 +731,8 @@ section {
   border: 3px solid transparent;
   border-radius: 50%;
   cursor: pointer;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
 }
 
 .slide-bar__item:hover {
