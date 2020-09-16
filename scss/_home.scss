@@ -378,6 +378,8 @@ section {
     }
 
     &__button {
+        @include transition;
+
         width: 30px;
         height: 30px;
         position: relative;
@@ -395,6 +397,8 @@ section {
         }
 
         &::before {
+            @include transition;
+
             content: "";
             position: absolute;
             top: 35%;
@@ -428,6 +432,7 @@ section {
 
     &__item {
         @include responsive-square(29%);
+        @include transition;
 
         overflow: hidden;
         position: relative;

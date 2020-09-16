@@ -91,6 +91,8 @@ ul, ol {
 }
 
 .button {
+  -webkit-transition: all .3s;
+  transition: all .3s;
   width: 100%;
   max-width: 175px;
   padding: 15px 0;
@@ -672,6 +674,8 @@ section {
 }
 
 .slide-bar__button {
+  -webkit-transition: all .3s;
+  transition: all .3s;
   width: 30px;
   height: 30px;
   position: relative;
@@ -690,6 +694,8 @@ section {
 }
 
 .slide-bar__button::before {
+  -webkit-transition: all .3s;
+  transition: all .3s;
   content: "";
   position: absolute;
   top: 35%;
@@ -726,6 +732,8 @@ section {
   width: 29%;
   padding-bottom: 29%;
   height: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
   overflow: hidden;
   position: relative;
   border: 3px solid transparent;

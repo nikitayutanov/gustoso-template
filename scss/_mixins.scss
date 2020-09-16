@@ -96,3 +96,7 @@
     background: linear-gradient($dark-layer, $dark-layer),
                 url($image) center/cover no-repeat;
 }
+
+@mixin transition {
+    transition: all .3s;
+}
