@@ -188,6 +188,7 @@
     min-height: 100vh;
     text-align: center;
     color: $white;
+    position: relative;
 
     &__container {
         flex-direction: column;
