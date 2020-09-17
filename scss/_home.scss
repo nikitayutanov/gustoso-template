@@ -1,4 +1,4 @@
-section {
+.section {
     display: flex;
     flex-direction: column;
     min-height: 90vh;
@@ -14,6 +14,174 @@ section {
 }
 
 // Header
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    @include lg {
+        &--visible {
+            width: 100%;
+            height: 100%;
+
+            .main-nav {
+                transform: translateX(0);
+            }
+    
+            .hamburger__item {
+                background-color: transparent;
+    
+                &::before {
+                    transform: translateY(-50%) rotate(45deg);
+                    top: 50%;
+                }
+    
+                &::after {
+                    transform: translateY(50%) rotate(-45deg);
+                    bottom: 50%;
+                }
+            }
+        }
+    }
+}
+
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 25px;
+    padding: 0;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    background: none;
+    border: none;
+    filter: drop-shadow(1px 1px 1px $black-dark-color);
+    cursor: pointer;
+    z-index: 11;
+
+    @include lg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &__item {
+        @extend %hamburger-strip;
+        @include transition;
+
+        &::before, &::after {
+            @extend %hamburger-strip;
+            @include transition;
+
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+}
+
+.main-nav {
+    width: 100%;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: $white;
+    background-color: $black-darkest-color;
+    transition: transform .3s ease-in-out;
+
+    @include lg {
+        width: 75%;
+        max-width: 300px;
+        height: 100%;
+        padding: 50px 0;
+        flex-direction: column;
+        transform: translateX(100%);
+    }
+
+    &__container {
+        margin: 0;
+        padding: 0;
+
+        @include lg {
+            width: 100%;
+        }
+    }
+
+    &__heading {
+        @include lg {
+            margin-bottom: $mid-gap;
+        }
+    }
+
+    &__list {
+        @include lg {
+            flex-direction: column;
+            height: 75%;
+        }
+    }
+
+    &__item {
+        @include lg {
+            &:not(:last-child) {
+                &::after {
+                    top: calc(100% - 10px);
+                    left: auto;
+                }
+            }
+        }
+    }
+
+    &__link {
+        @include lg {
+            height: 100%;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__social {
+        display: flex;
+    }
+
+    &__social-item {
+        width: 20px;
+        height: 20px;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &__icon {
+        @include transition;
+
+        fill: $white;
+
+        &:hover {
+            fill: $interaction-color;
+        }
+    }
+}
 
 .pastry {
     @include darken-background("img/bg/header.jpg", .25);
@@ -833,9 +1001,6 @@ section {
 
     &__heading {
         margin: 0 5%;
-        font-family: $handwriting-font;
-        font-size: $mid-font-size;
-        font-weight: 100;
 
         @include md {
             margin: $smallest-gap 0;
@@ -843,42 +1008,8 @@ section {
     }
 
     &__list {
-        flex-basis: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        background-image: linear-gradient(to right, transparent 0, #efece1 10%, #efece1 90%, transparent 100%);
+        background-image: linear-gradient(to right, transparent 0, $primary-nav-color 10%, $primary-nav-color 90%, transparent 100%);
         border: solid $primary-border-color;
         border-width: 1px 0;
-    }
-
-    &__item {
-        flex-grow: 1;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        &:not(:last-of-type) {
-            &::after {
-                content: "~";
-                position: absolute;
-                left: calc(100% - 5px);
-            }
-        }
-    }
-
-    &__link {
-        @include transition;
-
-        padding: 20px 0;
-        flex-basis: 100%;
-        font-family: $secondary-font;
-        text-transform: uppercase;
-        
-        &:hover {
-            color: $interaction-color;
-        }
     }
 }

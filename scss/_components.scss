@@ -62,3 +62,55 @@
     text-transform: uppercase;
     border: 1px dashed;
 }
+
+.nav {
+    &__heading {
+        font-family: $handwriting-font;
+        font-size: $mid-font-size;
+        font-weight: 100;
+    }
+
+    &__list {
+        flex-basis: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item {
+        flex-grow: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &:not(:last-of-type) {
+            &::after {
+                content: "~";
+                position: absolute;
+                left: calc(100% - 5px);
+            }
+        }
+    }
+
+    &__link {
+        @include transition;
+
+        padding: 20px 0;
+        flex-basis: 100%;
+        font-family: $secondary-font;
+        text-transform: uppercase;
+        
+        &:hover {
+            color: $interaction-color;
+        }
+    }
+}
+
+%hamburger-strip {
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    border-radius: 5px;
+}
